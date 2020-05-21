@@ -7,6 +7,7 @@ const movie_posters=['./images/castle_in_the_sky.jpg', './images/grave_of_firefl
 './images/Howls_Moving_Castle.jpg','./images/earthsea.jpg','./images/Ponyo.jpg','./images/Arrietty.jpg','./images/From_Up_on_Poppy_Hill.jpg',
 './images/The_Wind_Rises.jpg','./images/The_Tale_of_the_Princess_Kaguya.jpg','./images/When_Marnie_Was_There.jpg'];
 
+var api_data;
 
 function getMovieTitles(){
     //gets the movie titles
@@ -19,6 +20,7 @@ function getMovieTitles(){
         //do something with data here
         console.log(data)
         var count=0
+        api_data=data;
         data.forEach(element => {
 
             var location = document.getElementById('info');
@@ -73,4 +75,44 @@ function assignPictures(num){
     //assigns each card an image
     var card = document.getElementById(num);
     card.src = movie_posters[num];
+   // console.log(api_data);
+}
+
+//maybe add a sorting function by title and year
+//maybe get an array of the child component and then arrange it based on card-title h5
+//element.release_date and element.title are the ones that need sorting
+//maybe save a copy for the object somewhere
+
+function see(){
+    api_data.sort(sort_title);
+    console.log(api_data);
+
+}
+
+function sort_title(a,b){
+    const releaseA= a.title;
+    const releaseB = b.title;
+
+    let compare=0;
+    if(releaseA>releaseB){
+        compare= 1;
+    }
+    else if(releaseA<releaseB){
+        compare=-1;
+    }
+    return compare;
+}
+
+function sort_release(a,b){
+    const releaseA= a.release_date;
+    const releaseB = b.release_date;
+
+    let compare=0;
+    if(releaseA>releaseB){
+        compare= 1;
+    }
+    else if(releaseA<releaseB){
+        compare=-1;
+    }
+    return compare;
 }
