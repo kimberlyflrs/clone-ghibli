@@ -15,7 +15,6 @@ h1, p, h5{
 
 #studio_info{
     padding: 0 8em;
-    color: #ede6cb;
 }
 
 .bg-brown{
@@ -23,10 +22,17 @@ h1, p, h5{
 }
 
 .btn-brown{
-    background-color: #716844;
-    color: #ede6cb;
+    background-color: #716844 !important;
+}
+
+.gold-text, #studio_info, .btn-brown{
+    color: #ede6cb !important;
 }
 
 .dropdown{
     margin: 1em 8em 1em 0;
+}
+
+.bottom{
+    padding-bottom: 3em;
 }

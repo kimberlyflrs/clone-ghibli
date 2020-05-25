@@ -32,12 +32,24 @@ function stitle(){
     api_data.sort(sort_title);
     clear();
     create_movies(api_data);
+    var title = document.getElementById('title');
+    title.className= "dropdown-item active";
+    var year = document.getElementById('year');
+    year.className= "dropdown-item";
+    var rating = document.getElementById('rating');
+    rating.className= "dropdown-item";
 }
 
 function year(){
     api_data.sort(sort_release);
     clear();
     create_movies(api_data);
+    var title = document.getElementById('title');
+    title.className= "dropdown-item";
+    var year = document.getElementById('year');
+    year.className= "dropdown-item active";
+    var rating = document.getElementById('rating');
+    rating.className= "dropdown-item";
 }
 
 function rating(){
@@ -45,6 +57,12 @@ function rating(){
     console.log(api_data);  
     clear();
     create_movies(api_data);
+    var title = document.getElementById('title');
+    title.className= "dropdown-item";
+    var year = document.getElementById('year');
+    year.className= "dropdown-item";
+    var rating = document.getElementById('rating');
+    rating.className= "dropdown-item active";
 }
 
 function sort_title(a,b){
@@ -141,8 +159,10 @@ function create_movies(info){
         var movie_description = document.createTextNode(element.description);
         
         //make external link button
+        var link = document.createElement('a');
+        link.href = create_link(element.title);
         var button = document.createElement('button');
-        button.className="btn btn-brown"
+        button.className="btn-brown btn";
         var more = document.createTextNode('Learn More');
 
         description.appendChild(movie_description);
@@ -150,12 +170,13 @@ function create_movies(info){
         release.appendChild(info);
         rating.appendChild(rate_info);
         button.appendChild(more);
+        link.appendChild(button);
         cb.appendChild(image);
         cb.appendChild(title);
         cb.appendChild(release);
         cb.appendChild(rating);
         cb.appendChild(description);
-        cb.appendChild(button);
+        cb.appendChild(link);
         c.appendChild(cb);
         location.appendChild(c);
 
@@ -170,4 +191,13 @@ function clear(){
     while (movies.hasChildNodes()){
         movies.removeChild(movies.firstChild);
     }
+}
+
+function create_link(title){
+    if (title == "Castle in the Sky"){
+        title = "Laputa Castle in the Sky";
+    }
+    title = title.toLowerCase().split(" ").join("").split("'").join("");
+    var link = "https://www.studioghibli.com.au/" + title +"/";
+    return link;
 }
