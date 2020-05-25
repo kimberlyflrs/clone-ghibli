@@ -1,6 +1,32 @@
 /*Styling*/
 /*change the font to something thin, spacing between image and title*/
-.card{
+.card, #logo, #studio_info{
     margin: 10px;
 }
 
+h1, p, h5{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#logo, .movie_pic{
+    height: auto;
+    width: 30%;
+}
+
+#studio_info{
+    padding: 0 8em;
+    color: #ede6cb;
+}
+
+.bg-brown{
+    background-color: #716844;
+}
+
+.btn-brown{
+    background-color: #716844;
+    color: #ede6cb;
+}
+
+.dropdown{
+    margin: 1em 8em 1em 0;
+}
