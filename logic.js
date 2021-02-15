@@ -1,4 +1,4 @@
-//Logic for Studio Ghibli API Clone
+//Logic for Studio Ghibli API
 //https://ghibliapi.herokuapp.com/
 
 var api_data;
